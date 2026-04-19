@@ -2,7 +2,8 @@ import streamlit as st
 import pandas as pd
 from sklearn.datasets import load_iris
 from sklearn.ensemble import RandomForestClassifier
-
+st.set_page_config(page_title="Iris Classifier", layout="wide")
+st.title("Iris Classifier App")
 
 @st.cache_data
 def load_data():
@@ -47,9 +48,22 @@ petal_width = st.sidebar.slider(
 
 input_data = [[sepal_length, sepal_width, petal_length, petal_width]]
 
+st.subheader("Dataset Preview")
+st.dataframe(df.head())
+
+st.subheader("Feature Importance")
+
+feature_importance = pd.DataFrame({
+    'feature': df.columns[:-1],
+    'importance': model.feature_importances_
+})
+
+st.bar_chart(feature_importance.set_index('feature'))
+
 # Prediction
 prediction = model.predict(input_data)
 predicted_species = target_names[prediction[0]]
 
-st.write("Prediction")
-st.write(f"The predicted species is: {predicted_species}")
+#display
+st.subheader("Prediction")
+st.success(f"🌸 Predicted Species: {predicted_species}")
