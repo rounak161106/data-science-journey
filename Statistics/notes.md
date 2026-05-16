@@ -8,3 +8,4 @@ where $\mu$ and $\sigma$ are the mean and standard deviation of the logarithm of
 - The variance of a log normal distribution is given by $Var[X] = (e^{\sigma^2} - 1)e^{2\mu + \sigma^2}$.
 - The median of a log normal distribution is given by $Median[X] = e^{\mu}$.
 - If a variable is log normally distributed and we take natural logarithm of it, we will get a normal distribution. This is useful in many applications, such as modeling stock prices, where the logarithm of the price is often assumed to be normally distributed.
+- Similarly, if we have a normal distribution and we take the exponential of it, we will get a log normal distribution. This is useful in many applications, such as modeling the size of particles in a sample, where the size is often assumed to be log normally distributed.
